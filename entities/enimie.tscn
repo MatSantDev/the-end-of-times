@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://j3oljxxg500o"]
+
+[ext_resource type="Texture2D" uid="uid://cka4o3piym7qi" path="res://Assets/Inimigo.png" id="1_xow3g"]
+[ext_resource type="Script" uid="uid://boqfkm5uwq1sp" path="res://scripts/enimie.gd" id="1_y33vu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uj04i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xow3g")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uj04i"]
+size = Vector2(18, 5.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jc63w"]
+size = Vector2(20, 29)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uj04i"]
+radius = 92.00543
+
+[node name="Enimie" type="CharacterBody2D" unique_id=1002531795 groups=["enemy"]]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_y33vu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2077372079]
+sprite_frames = SubResource("SpriteFrames_uj04i")
+animation = &"idle"
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1157213079]
+position = Vector2(0, 8.75)
+shape = SubResource("RectangleShape2D_uj04i")
+debug_color = Color(0.109276466, 0.5599164, 0.87087804, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1542321292]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1670318920]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_jc63w")
+debug_color = Color(0.9833357, 0.023391979, 0.33708027, 0.41960785)
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1321394897 groups=["enemy"]]
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape2D" parent="DetectionArea" unique_id=2015986352]
+show_behind_parent = true
+shape = SubResource("CircleShape2D_uj04i")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

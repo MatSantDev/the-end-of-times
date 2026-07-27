@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://baubel7ej4gnr"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1432637929]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=181682793]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1902868356]
+layout_mode = 2
+
+[node name="Time" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1427097664]
+layout_mode = 2
+
+[node name="Life" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1311045908]
+layout_mode = 2

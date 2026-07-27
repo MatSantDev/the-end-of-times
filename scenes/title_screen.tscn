@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://c2sfhjnntlfy5"]
+
+[ext_resource type="Texture2D" uid="uid://cka4o3piym7qi" path="res://Assets/Inimigo.png" id="1_fgkus"]
+[ext_resource type="Script" uid="uid://c06fflxjgct16" path="res://scripts/title_screen.gd" id="1_s4lrb"]
+[ext_resource type="Theme" uid="uid://fmuwijnf1ba3" path="res://theme/theme_btn.tres" id="1_sa3yf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgrm8"]
+bg_color = Color(0.28627452, 0.6117647, 0.9529412, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgkus"]
+bg_color = Color(0.21960784, 0.5254902, 0.92941177, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.48805398, 0.4880541, 0.48805374, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpupq"]
+bg_color = Color(0.28627452, 0.6117647, 0.9529412, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa3yf"]
+bg_color = Color(0.56839645, 0.3479941, 1.7388083, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_s4lrb"]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_mgrm8")
+Button/styles/hover = SubResource("StyleBoxFlat_fgkus")
+Button/styles/normal = SubResource("StyleBoxFlat_vpupq")
+Button/styles/pressed = SubResource("StyleBoxFlat_sa3yf")
+
+[node name="TitleScreen" type="Control" unique_id=917879685]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s4lrb")
+
+[node name="bg" type="TextureRect" parent="." unique_id=526824431]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=13737177]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=62278372]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1845131679]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=2131977680]
+layout_mode = 2
+
+[node name="StartBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1002333001]
+layout_mode = 2
+theme = ExtResource("1_sa3yf")
+text = "Start"
+
+[node name="CreditsBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1963805686]
+layout_mode = 2
+theme = SubResource("Theme_s4lrb")
+text = "Credits"
+
+[node name="ExitBtn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1108071189]
+layout_mode = 2
+theme = ExtResource("1_sa3yf")
+text = "Quit Game"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1489011748]
+layout_mode = 2
+texture = ExtResource("1_fgkus")
+expand_mode = 2
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/CreditsBtn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]

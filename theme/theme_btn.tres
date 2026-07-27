@@ -1,0 +1,41 @@
+[gd_resource type="Theme" format=3 uid="uid://fmuwijnf1ba3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgrm8"]
+bg_color = Color(0.28627452, 0.6117647, 0.9529412, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgkus"]
+bg_color = Color(0.21960784, 0.5254902, 0.92941177, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.48805398, 0.4880541, 0.48805374, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpupq"]
+bg_color = Color(0.28627452, 0.6117647, 0.9529412, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa3yf"]
+bg_color = Color(0.56839645, 0.3479941, 1.7388083, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_mgrm8")
+Button/styles/hover = SubResource("StyleBoxFlat_fgkus")
+Button/styles/normal = SubResource("StyleBoxFlat_vpupq")
+Button/styles/pressed = SubResource("StyleBoxFlat_sa3yf")
